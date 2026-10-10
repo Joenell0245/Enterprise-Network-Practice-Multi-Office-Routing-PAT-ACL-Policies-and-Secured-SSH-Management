@@ -87,15 +87,15 @@ line vty 0 15
 ```
 
 ## Verification
-
-| Test | Expected result | Evidence |
+ 
+| Test | Expected result | Configured in |
 |---|---|---|
-| Office PCs reach the outside server over HTTP, HTTPS, FTP | Succeeds; entries in `show ip nat translations` | translations.png |
-| Admin (192.168.50.5) SSH to R1, R2, R3 | Succeeds | `screenshots/ssh-admin-success.png` |
-| Any other host SSH to a router | Refused; deny counter increases | `screenshots/ssh-denied.png` |
-| Office 3 to outside TFTP (UDP 69) | Succeeds | `screenshots/tftp-office3.png` |
-| Other offices to outside TFTP | Blocked | `screenshots/tftp-blocked.png` |
-| Offices other than 1 and 2 to the FTP server | Blocked | `screenshots/acl-hit-counters.png` |
+| Office PCs reach the outside server over HTTP, HTTPS, FTP | Succeeds; entries in `show ip nat translations` | `configs/R3.txt` (PAT) |
+| Admin (192.168.50.5) SSH to R1, R2, R3 | Succeeds | `configs/R1.txt`, `R2.txt`, `R3.txt` (SSH-ADMIN) |
+| Any other host SSH to a router | Refused; deny counter increases | `configs/R1.txt`, `R2.txt`, `R3.txt` (SSH-ADMIN) |
+| Office 3 to outside TFTP (UDP 69) | Permitted by the ACL | `configs/` (TFTP ACL) |
+| Other offices to outside TFTP | Blocked | `configs/` (TFTP ACL) |
+| Offices other than 1 and 2 to the FTP server | Blocked | `configs/` (FTP ACL) |
 
 Sample PAT translation table from R3:
 
