@@ -4,7 +4,7 @@ A Cisco Packet Tracer lab that connects five office networks through three route
 
 > All addresses and credentials in this repository are **lab-only**. Passwords and hashes have been replaced with placeholders.
 
-![Topology](screenshots/topology.png)
+![Topology](screenshots/topolo.png)
 
 ## Objectives
 
